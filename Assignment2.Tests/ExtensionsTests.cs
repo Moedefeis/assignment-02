@@ -34,6 +34,7 @@ public class ExtensionsTests
 
         // Act
         var actual = ys.Filter(divisibleBy7).Filter(greaterThan42);
+        var actual2 = ys.Where(y => y % 7 == 0 && y >= 42).ToArray();
         
         // Assert
         Assert.Equal(expected, actual);
@@ -52,6 +53,7 @@ public class ExtensionsTests
 
         // Act
         var actual = ys.Filter(isLeapYear);
+        var actual2 = ys.Where(y => DateTime.IsLeapYear(y)).ToArray();
         
         // Assert
         Assert.Equal(expected, actual);
